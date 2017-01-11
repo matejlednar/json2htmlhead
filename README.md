@@ -1,4 +1,4 @@
-#JSON 2 HTML &lt;head> for PHP (json2htmlhead)
+#JSON to HTML &lt;head> for PHP (json2htmlhead)
 
 HTML &lt;head> element generator from JSON for PHP
 
