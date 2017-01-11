@@ -1,0 +1,41 @@
+{
+    "charset" : "utf-8",
+    "title" : "JSON 2 HTML &lt;head&gt;",
+    "viewport" : "width=device-width, initial-scale=1",
+    "author" : "PhDr. Matej Lednár, PhD.",
+    "description" : "JSON 2 HTML head",
+    "keywords" : "generator, head, webtool, webdesign, website, javascript, bootstrap, css, jQuery",
+    "robots" : "all,follow",
+    "googlebot" : "index,follow,snippet,archive",
+    "icon" : "app/img/favicon.ico",
+    "fonts" : {
+        "Roboto" : "https://fonts.googleapis.com/css?family=Roboto"
+    },        
+    "dev" : {
+        "javascript" : 
+            {
+                "jquery" : "../../DevLibs/bower_components/jquery/dist/jquery.js",
+                "bootstrap" : "../../DevLibs/bower_components/bootstrap/dist/js/bootstrap.js",
+                "googleanalytics" : "app/libs/google-analytics/ga.js",
+                "app" : "sources/js/script.js"
+            },
+        "css" : {
+            "bootstrap" : "../../DevLibs/bower_components/bootstrap/dist/css/bootstrap.css",
+            "app" : "sources/css/styles.css"
+        }
+    },
+    "release" : 
+        {      
+            "javascript" : 
+                {
+                    "jquery" : "app/libs/jquery/jquery.min.js",               
+                    "bootstrap" : "app/libs/bootstrap/js/bootstrap.min.js",
+                    "googleanalytics" : "app/libs/google-analytics/ga.js",
+                    "app" : "app/js/script.min.js"
+                },
+            "css" : {
+                "bootstrap" : "app/libs/bootstrap/css/bootstrap.min.css",
+                "app" : "app/css/styles.min.css"
+            }
+        }
+}

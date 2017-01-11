@@ -1,0 +1,41 @@
+{
+    "charset" : "utf-8",
+    "title" : "",
+    "viewport" : "width=device-width, initial-scale=1",
+    "author" : "",
+    "description" : "",
+    "keywords" : "",
+    "robots" : "all,follow",
+    "googlebot" : "index,follow,snippet,archive",
+    "icon" : "",
+    "fonts" : {
+        "fontName" : ""
+    },        
+    "dev" : {
+        "javascript" : 
+            {
+                "jquery" : "",
+                "bootstrap" : "",
+                "googleanalytics" : "",
+                "app" : ""
+            },
+        "css" : {
+            "bootstrap" : "",
+            "app" : ""
+        }
+    },
+    "release" : 
+        {      
+            "javascript" : 
+                {
+                    "jquery" : "",               
+                    "bootstrap" : "",
+                    "googleanalytics" : "",
+                    "app" : ""
+                },
+            "css" : {
+                "bootstrap" : "",
+                "app" : ""
+            }
+        }
+}
