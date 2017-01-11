@@ -24,7 +24,7 @@ class HeaderGenerator {
     }
 
     /**
-     * Loading JSON, if JSON exist, use it
+     * Loading JSON
      * 
      * @return Array
      */
@@ -36,7 +36,7 @@ class HeaderGenerator {
     /**
      * Creates link element for font
      * 
-     * @param type $fonts - json data
+     * @param type $data - json data
      * @return string
      */
     private function getFontsFragment($data) {
@@ -54,7 +54,7 @@ class HeaderGenerator {
     }
 
     /**
-     * Creates link element for style
+     * Creates link element for CSS
      *  
      * @param type $data
      * @return string
