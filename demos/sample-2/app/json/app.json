@@ -1,9 +1,9 @@
 {
     "charset" : "utf-8",
-    "title" : "JSON 2 HTML &lt;head&gt;",
+    "title" : "JSON to HTML &lt;head&gt; for PHP",
     "viewport" : "width=device-width, initial-scale=1",
     "author" : "PhDr. Matej Lednár, PhD.",
-    "description" : "JSON 2 HTML head",
+    "description" : "JSON to HTML head for PHP",
     "keywords" : "generator, head, webtool, webdesign, website, javascript, bootstrap, css, jQuery",
     "robots" : "all,follow",
     "googlebot" : "index,follow,snippet,archive",
