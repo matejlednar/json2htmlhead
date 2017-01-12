@@ -10,3 +10,8 @@ This structure is optional. You can omit any property. It will automatically fil
 <br>
 
 javascript and css property can be augmented for new libraries. Number of libraries or fonts is not limited.
+
+User can set own URL for JSON data:
+<br>
+$hg = new HeaderGenerator();<br>
+$hg->start("app/json/app.json");<br>
