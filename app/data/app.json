@@ -15,6 +15,7 @@
         "javascript" : 
             {
                 "jquery" : "",
+                "jquery-ui" : "",
                 "bootstrap" : "",
                 "googleanalytics" : "",
                 "app" : ""
@@ -28,7 +29,8 @@
         {      
             "javascript" : 
                 {
-                    "jquery" : "",               
+                    "jquery" : "",  
+                    "jquery-ui" : "",
                     "bootstrap" : "",
                     "googleanalytics" : "",
                     "app" : ""
