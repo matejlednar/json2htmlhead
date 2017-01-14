@@ -9,13 +9,19 @@ If you are using in your project only one directory, write same data for both ob
 This structure is optional. You can omit any property. It will automatically filled with empty string.
 <br>
 
-javascript and css property can be augmented for new libraries. Number of libraries or fonts is not limited.
+##Application overview
+- user can define unlimited fonts
+- user can define unlimited libraries
+- user can define unlimited RSS
+- user can define unlimited CSS files
+- user can define unlimited meta elements
+
 
 ##How to run JSON to HTML head for PHP
 
-&lt;head<&gt; <br>
+&lt;head&gt; <br>
 include_once 'app/php/inc/page-header.php'; (json2htmlhead) <br>
-&lt;/head<&gt; <br>
+&lt;/head&gt; <br>
 
 ## How to set own URL for JSON data
 User can set own URL for JSON data:
