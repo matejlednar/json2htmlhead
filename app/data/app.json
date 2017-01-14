@@ -8,6 +8,12 @@
     "robots" : "all,follow",
     "googlebot" : "index,follow,snippet,archive",
     "icon" : "",
+    "rss": {
+     "url": "title"
+    },
+    "content": {
+    "name": "content"
+    },
     "fonts" : {
         "fontName" : ""
     },        
