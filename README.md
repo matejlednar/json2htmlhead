@@ -21,7 +21,7 @@ This structure is optional. You can omit any property. It will automatically fil
 
 &lt;head&gt; <br>
 <? <br>
-include_once 'app/php/inc/page-header.php'; (json2htmlhead) <br>
+include_once 'app/php/inc/page-header.php'; <br>
 ?> <br>
 &lt;/head&gt; <br>
 
