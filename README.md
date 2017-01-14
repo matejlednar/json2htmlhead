@@ -20,9 +20,9 @@ This structure is optional. You can omit any property. It will automatically fil
 ##How to run JSON to HTML head for PHP
 
 &lt;head&gt; <br>
-<?
+<? <br>
 include_once 'app/php/inc/page-header.php'; (json2htmlhead) <br>
-?>
+?> <br>
 &lt;/head&gt; <br>
 
 ## How to set own URL for JSON data
