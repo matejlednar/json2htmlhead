@@ -11,7 +11,15 @@ This structure is optional. You can omit any property. It will automatically fil
 
 javascript and css property can be augmented for new libraries. Number of libraries or fonts is not limited.
 
+##How to run JSON to HTML head for PHP
+
+&lt;head<&gt; <br>
+include_once 'app/php/inc/page-header.php'; (json2htmlhead) <br>
+&lt;/head<&gt; <br>
+
+## How to set own URL for JSON data
 User can set own URL for JSON data:
 <br>
 $hg = new HeaderGenerator();<br>
 $hg->start("app/json/app.json");<br>
+
