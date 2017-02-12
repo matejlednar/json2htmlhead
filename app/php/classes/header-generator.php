@@ -1,11 +1,8 @@
 <?
-/* 
+/**
  * JSON to HTML <head> for PHP (json2htmlhead)
  * 
- * Author: PhDr. Matej Lednár, PhD.
- * Website: work.mldgroup.com
- * GitHub: https://github.com/matejlednar/json2htmlhead
- * 
+ * with The Open Graph protocol (http://ogp.me/) support
  */
 class HeaderGenerator {
 
@@ -14,8 +11,8 @@ class HeaderGenerator {
     /**
      * main function
      */
-    public function start($uri = "app/data/app.json") {
-        $this-> url = $uri;
+    public function start($uri = "data/app.json") {
+        $this->url = $uri;
         $data = $this->getJson();
         $html = $this->parseData($data);
         $this->showHTML($html);
@@ -31,7 +28,7 @@ class HeaderGenerator {
     }
 
     /**
-     * Loading JSON
+     * Loading JSON, if JSON exist, use it
      * 
      * @return Array
      */
@@ -55,13 +52,74 @@ class HeaderGenerator {
         }
 
         foreach ($data as $key => $url) {
-            $fragment .= "<link rel=\"stylesheet\" type=\"text/css\" href=\"" . $url . "\">";
+            $fragment .= "<link rel=\"stylesheet\" type=\"text/css\" href=\"$url\">";
         }
         return $fragment;
     }
 
     /**
-     * Creates link element for CSS
+     * Creates link element for RSS
+     * 
+     * @param type $data - json data
+     * @return string
+     */
+    private function getRSSFragment($data) {
+
+        $fragment = "";
+
+        if ($data == "") {
+            return $fragment;
+        }
+
+        foreach ($data as $url => $title) {
+            $fragment .= "<link href=\"$url\" rel=\"alternate\" type=\"application/rss+xml\" title=\"$title\">";
+        }
+        return $fragment;
+    }
+
+    /**
+     * Creates meta element with name and content attrbibute
+     * 
+     * @param type $data - json data
+     * @return string
+     */
+    private function getContentFragment($data) {
+
+        $fragment = "";
+
+        if ($data == "") {
+            return $fragment;
+        }
+
+        foreach ($data as $name => $content) {
+            $fragment .= "<meta name=\"$name\" content=\"$content\">";
+        }
+        return $fragment;
+    }
+
+    /**
+     * Creates The Open Graph protocol - meta element with property and content attributes
+     * Update your <html> element to <html prefix="og: http://ogp.me/ns#">
+     * 
+     * @param type $data - json data
+     * @return string
+     */
+    private function getPropertyFragment($data) {
+
+        $fragment = "";
+
+        if ($data == "") {
+            return $fragment;
+        }
+
+        foreach ($data as $name => $content) {
+            $fragment .= "<meta property=\"$name\" content=\"$content\">";
+        }
+        return $fragment;
+    }
+
+    /**
+     * Creates link element for style
      *  
      * @param type $data
      * @return string
@@ -75,7 +133,7 @@ class HeaderGenerator {
         }
 
         foreach ($data as $key => $url) {
-            $fragment .= "<link rel=\"stylesheet\" href=\"" . $url . "\">";
+            $fragment .= "<link rel=\"stylesheet\" href=\"$url\">";
         }
         return $fragment;
     }
@@ -95,18 +153,11 @@ class HeaderGenerator {
         }
 
         foreach ($data as $key => $url) {
-            $fragment .= "<script src=\"" . $url . "\"></script>";
+            $fragment .= "<script src=\"$url\"></script>";
         }
         return $fragment;
     }
 
-    /**
-     * Checks element existence in array and returns value
-     * 
-     * @param type $data - array
-     * @param type $key - element
-     * @return string
-     */
     private function getValue($data, $key) {
         if (array_key_exists($key, $data)) {
             return $data[$key];
@@ -116,7 +167,7 @@ class HeaderGenerator {
     }
 
     /**
-     * Parsing data and creating <head> content from JSON
+     * Parsing data and creating <head> content from json
      * 
      * @param type $data
      */
@@ -124,28 +175,54 @@ class HeaderGenerator {
 
         $appType = "";
 
-        $html = "<title>" . $this->getValue($data, "title") . "</title>";
-        $html .= "<meta charset=\"" . $this->getValue($data, "charset") . "\">";
-        $html .= "<meta name=\"viewport\" content=\"" . $this->getValue($data, "viewport") . "\">";
-        $html .= "<meta name=\"author\" content=\"" . $this->getValue($data, "author") . "\">";
-        $html .= "<meta name=\"description\" content=\"" . $this->getValue($data, "description") . "\">";
-        $html .= "<meta name=\"keywords\" content=\"" . $this->getValue($data, "keywords") . "\">";
-        $html .= "<meta name=\"robots\" content=\"" . $this->getValue($data, "robots") . "\">";
-        $html .= "<meta name=\"googlebot\" content=\"" . $this->getValue($data, "googlebot") . "\">";
-        $html .= "<link rel=\"icon\" href=\"" . $this->getValue($data, "icon") . "\"> ";
+        $title = $this->getValue($data, "title");
+        $html = $title != "" ? "<title>" . $title . "</title>" : $title;
+
+        $charset = $this->getValue($data, "charset");
+        $html .= $charset != "" ? "<meta charset=\"" . $charset . "\">" : $charset;
+
+        $viewport = $this->getValue($data, "viewport");
+        $html .= $viewport != "" ? "<meta name=\"viewport\" content=\"" . $viewport . "\">" : $viewport;
+
+        $author = $this->getValue($data, "author");
+        $html .= $author != "" ? "<meta name=\"author\" content=\"" . $author . "\">" : $author;
+
+        $description = $this->getValue($data, "description");
+        $html .= $description != "" ? "<meta name=\"description\" content=\"" . $description . "\">" : $description;
+
+        $keywords = $this->getValue($data, "keywords");
+        $html .= $keywords != "" ? "<meta name=\"keywords\" content=\"" . $keywords . "\">" : $keywords;
+
+        $robots = $this->getValue($data, "robots");
+        $html .= $robots != "" ? "<meta name=\"robots\" content=\"" . $robots . "\">" : "";
+
+        $googlebot = $this->getValue($data, "googlebot");
+        $html .= $googlebot != "" ? "<meta name=\"googlebot\" content=\"" . $googlebot . "\">" : $googlebot;
+
+        // other content metadata
+        $content = $this->getValue($data, "content");
+        $html .= $this->getContentFragment($content);
+
+        $property = $this->getValue($data, "property");
+        $html .= $this->getPropertyFragment($property);
+
+        $rss = $this->getValue($data, "rss");
+        $html .= $this->getRSSFragment($rss);
+
+        $icon = $this->getValue($data, "icon");
+        $html .= $icon != "" ? "<link rel=\"icon\" href=\"" . $icon . "\"> " : $icon;
 
         $fonts = $this->getValue($data, "fonts");
         $html .= $this->getFontsFragment($fonts);
 
-        // detecting app version
         if (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) {
             $appType = "dev";
         } else {
             $appType = "release";
         }
 
-        $html .= $this->getCSSFragment($this->getValue($data[$appType],"css"));
-        $html .= $this->getScriptFragment($this->getValue($data[$appType],"javascript"));
+        $html .= $this->getCSSFragment($this->getValue($data[$appType], "css"));
+        $html .= $this->getScriptFragment($this->getValue($data[$appType], "javascript"));
         return $html;
     }
 }
