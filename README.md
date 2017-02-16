@@ -34,3 +34,12 @@ User can set own URL for JSON data:
 $hg = new HeaderGenerator();<br>
 $hg->start("app/json/app.json");<br>
 
+##Testing release version
+use query string release=true in URL and you can test header generated from release data.
+e.g. http://localhost:8000/app/index.php?release=true
+
+Developers are using separated directories for dev version and release/build/app version.
+Build version is deployed on server and URL is changed from localhost to domain name.
+
+In this case are used release JSON data.
+If you want to test build version on localhost before server upload, use query string release=true.
