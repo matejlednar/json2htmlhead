@@ -215,7 +215,10 @@ class HeaderGenerator {
         $fonts = $this->getValue($data, "fonts");
         $html .= $this->getFontsFragment($fonts);
 
-        if (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) {
+        if (filter_input(INPUT_GET, 'release') === "true") {
+            $appType = "release";
+        }         
+        else if (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) {
             $appType = "dev";
         } else {
             $appType = "release";
