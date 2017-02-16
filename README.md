@@ -35,7 +35,7 @@ $hg = new HeaderGenerator();<br>
 $hg->start("app/json/app.json");<br>
 
 ##Testing release version
-use query string release=true in URL and you can test header generated from release data.
+Use query string release=true in URL and you can test header generated from release data.
 e.g. http://localhost:8000/app/index.php?release=true
 
 Developers are using separated directories for dev version and release/build/app version.
