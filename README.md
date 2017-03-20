@@ -8,8 +8,8 @@ JSON supports two directories. One for development and one for release.
 If you are using in your project only one directory, write same data for both objects - dev and release.
 This structure is optional. You can omit any property. It will automatically filled with empty string.
 
-JSON supports The Open Graph protocol (http://ogp.me/). User must update &lt;html&gt; element to <br>
-&lt;html lang="en" prefix="og: http://ogp.me/ns#" &gt;.
+JSON supports The Open Graph protocol (http://ogp.me/). User must update &lt;html&gt; element to
+&lt;html lang="en" prefix="og: http://ogp.me/ns#"&gt;.
 
 ## Application overview
 - user can define unlimited fonts
