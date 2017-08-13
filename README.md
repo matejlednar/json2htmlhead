@@ -18,7 +18,7 @@ JSON supports The Open Graph protocol (http://ogp.me/). User must update &lt;htm
 - user can define unlimited CSS files
 - user can define unlimited meta elements
 - user can define own unlimited content meta information via "content" : {"name" : "contentValue" }
-
+- user can override keywords, description and title via constuctor arguments
 
 ## How to run JSON to HTML head for PHP
 ```
