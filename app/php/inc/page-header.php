@@ -1,6 +1,6 @@
 <?
 include_once 'php/classes/HeaderGenerator.php';
 
-$hg = new HeaderGenerator("test", "key", "desc");
+$hg = new HeaderGenerator();
 $hg->start();
 ?>
